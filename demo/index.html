@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>asq-highlight-q | Demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <link href="../../asq-stem/asq-stem.html" rel="import">
+  <link rel="import" href="../asq-highlight-q.html">
+  <style>
+    body{
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    asq-highlight-q{
+      height: 550px;
+    }
+
+
+  </style>
+</head>
+<body unresolved>
+
+  <p><code>&lt;asq-highlight-q&gt; example</code>:</p>
+        
+  <asq-highlight-q  theme="textmate" mode="java" role="viewer" font-size="1em">
+    <asq-stem><h3 style=" margin:10px; 0;">Highlight with the appropriate color the following:</h3></asq-stem>
+    <asq-hl-color-task color="d9534f">Visibility Modifiers</asq-hl-color-task>
+      <asq-hl-color-task color="428bca">Variable Declarations</asq-hl-color-task>
+      <asq-hl-color-task color="f0ad4e">Other keywords</asq-hl-color-task>
+    <code>public class C {      
+ public void m() {
+   int i = i + 5 + ((int)5.0);
+ }
+}</code>
+  </asq-highlight-q>
+
+<asq-highlight-q  theme="textmate" mode="java" role="presenter" font-size="1em">
+    <asq-stem><h3 style=" margin:10px; 0;">Highlight with the appropriate color the following:</h3></asq-stem>
+    <asq-hl-color-task color="d9534f" colorName="bootstrapred">Visibility Modifiers</asq-hl-color-task>
+    <asq-hl-color-task color="428bca" colorName="blue">Variable Declarations</asq-hl-color-task>
+    <asq-hl-color-task color="f0ad4e" colorName="orange">Other keywords</asq-hl-color-task>
+    <code>public class C {      
+ public void m() {
+   int i = i + 5 + ((int)5.0);
+ }
+}</code>
+</asq-highlight-q>
+
+</body>
+</html>

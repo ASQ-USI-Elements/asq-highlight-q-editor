@@ -1,0 +1,47 @@
+{
+  "name": "asq-highlight-q-editor",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ASQ-USI-Elements/asq-highlight-q-editor",
+  "authors": [
+    "Vasileios Triglianos <triglian@gmail.com>"
+  ],
+  "description": "Editor for ASQ Highlight question type element",
+  "keywords": [
+    "ASQ"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".gitignore",
+    "**/.less",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json"
+  ],
+  "dependencies": {
+    "ace-element": "triglian/ace-element#master",
+    "asq-base": "ASQ-USI-Elements/asq-base#feat-polymer-1",
+    "asq-stem": "ASQ-USI-Elements/asq-stem#feat-polymer-1",
+    "asq-highlight-q": "ASQ-USI-Elements/asq-highlight-q#feat-polymer-1",
+    "iron-dropdown": "PolymerElements/iron-dropdown#~1.0.5",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#~1.0.3",
+    "iron-icon": "PolymerElements/iron-icon#~1.0.4",
+    "iron-icons": "PolymerElements/iron-icons#~1.0.3",
+    "iron-pages": "PolymerElements/iron-pages#~1.0.3",
+    "iron-selector": "PolymerElements/iron-selector#~1.0.2",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.1",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#~1.0.2",
+    "paper-icon-button": "PolymerElements/paper-icon-button#~1.0.3",
+    "paper-input": "PolymerElements/paper-input#~1.0.14",
+    "paper-item": "PolymerElements/paper-item#~1.0.2",
+    "paper-menu": "PolymerElements/paper-menu#~1.1.0",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#~1.0.7",
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.0.4",
+    "polymer": "Polymer/Polymer#~1.1.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
+    "web-component-tester": "Polymer/web-component-tester#~3.3.21"
+  }
+}
