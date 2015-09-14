@@ -448,7 +448,8 @@
         });
 
         //update palette
-        setTimeout(this.asqHighlight._populatePalette.bind(this.asqHighlight), 1)
+        Polymer.dom.flush();
+        this.asqHighlight._populatePalette();
       },
 
       _tasksChanged: function (tasks, asqHighlight) {
