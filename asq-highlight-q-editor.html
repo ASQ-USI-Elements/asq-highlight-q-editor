@@ -115,7 +115,7 @@
     <asq-highlight-q id="asqHighlight" theme="{{theme}}" mode="{{syntaxMode}}">
       <asq-stem id="leStem"></asq-stem>
       <template is="dom-repeat" items="{{tasks}}" as="t" index-as="idx">
-        <asq-hl-color-task color="{{t.color}}" idx="{{idx}}" colorname="{{t.colorName}}">{{t.html}}<paper-icon-button icon="close" on-click="removeTask"></paper-icon-button></asq-hl-color-task>
+        <asq-hl-color-task color="{{t.color}}" idx$="{{idx}}" colorname="{{t.colorName}}">{{t.html}}<paper-icon-button icon="close" on-click="removeTask" for-idx="{{idx}}"</paper-icon-button></asq-hl-color-task>
       </template>   
     </asq-highlight-q>
   </template>
@@ -462,11 +462,11 @@
       },
 
       removeTask: function (event, detail, sender) {
-        var task = event.currentTarget.parentNode;
-        var idx = task.getAttribute('idx');
+        var idx = parseInt(event.currentTarget.forIdx);
+        var task = this.$$('[idx="' + idx+ '"]');
         delete this.colors[task.color];
-        this.tasks.splice(idx, 1);
-        this.aceHighlightManager.removeAllMarkers();
+        this.splice('tasks', idx, 1);
+        this.aceHighlightManager.removeMarkersByColor(task.color);
 
         // update palette
         setTimeout(this.asqHighlight._populatePalette.bind(this.asqHighlight), 1)
@@ -486,18 +486,20 @@
       },
 
       getMarkup: function () {
-        var html = '<asq-highlight ';
+        var html = '<asq-exercise>\n'
+        html +=  '  <asq-highlight-q ';
         html += 'theme="' + this.theme + '" ';
         html += 'mode="' + this.syntaxMode + '">\n';
-        html += '  <asq-solution>' + JSON.stringify(this.getRanges(), null, 2) + '</asq-solution>\n';
-        html += '  <asq-stem>' + this.stem + '</asq-stem>\n';
+        html += '    <asq-solution>' + JSON.stringify(this.getRanges(), null, 2) + '</asq-solution>\n';
+        html += '    <asq-stem>' + this.stem + '</asq-stem>\n';
         this.tasks.forEach(function (t) {
-          html += '  <asq-hl-color-task color="' + t.color + '" colorName="' + t.colorName + '">' + t.html + '</asq-hl-color-task>\n';
+          html += '    <asq-hl-color-task color="' + t.color + '" colorName="' + t.colorName + '">' + t.html + '</asq-hl-color-task>\n';
         });
-        html += '  <code>';
+        html += '    <code>';
         html += this.asqHighlight.$.codeEditor.editor.session.getValue();
         html += '</code>\n';
-        html += '</asq-highlight>';
+        html += '  </asq-highlight-q>\n';
+        html += '</asq-exercise>';
         return html;
       },
 
