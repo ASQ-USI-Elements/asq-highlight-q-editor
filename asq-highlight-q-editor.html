@@ -53,6 +53,8 @@
 
       <span class="separator"></span>
 
+      <paper-input label="font-size" value="{{fontSize}}"></paper-input>
+
       <paper-dropdown-menu label="Syntax">
           <paper-menu class="dropdown-content" id="syntaxMenu" selected-item="{{syntaxModeItem}}">
             <template is="dom-repeat" items="{{syntaxModes}}" as="mode">
@@ -112,7 +114,7 @@
     <!-- <hr> -->
     <br><br><br><br>
     
-    <asq-highlight-q id="asqHighlight" theme="{{theme}}" mode="{{syntaxMode}}">
+    <asq-highlight-q id="asqHighlight" theme="{{theme}}" mode="{{syntaxMode}}" font-size="{{fontSize}}">
       <asq-stem id="leStem"></asq-stem>
       <template is="dom-repeat" items="{{tasks}}" as="t" index-as="idx">
         <asq-hl-color-task color="{{t.color}}" idx$="{{idx}}" colorname="{{t.colorName}}">{{t.html}}<paper-icon-button icon="close" on-click="removeTask" for-idx="{{idx}}"</paper-icon-button></asq-hl-color-task>
@@ -355,6 +357,11 @@
           notify: true
         },
 
+        fontSize:{
+          type: String,
+          notify: true
+        },
+
         syntaxMode: {
           type: String,
           value: '',
@@ -492,6 +499,7 @@
       getMarkup: function () {
         var html = '<asq-exercise>\n'
         html +=  '  <asq-highlight-q ';
+        html += 'font-size="' + this.fontSize + '" ';
         html += 'theme="' + this.theme + '" ';
         html += 'mode="' + this.syntaxMode + '">\n';
         html += '    <asq-solution>' + JSON.stringify(this.getRanges(), null, 2) + '</asq-solution>\n';
