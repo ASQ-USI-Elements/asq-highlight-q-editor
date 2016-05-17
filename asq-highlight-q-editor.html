@@ -25,9 +25,6 @@
     <style>
       :host{
         @apply(--layout-vertical);
-        @apply(--layout-fit);
-        --paper-toolbar-background: #CFD8DC;
-        --paper-toolbar-color: #000;  
       }
 
       #newTaskContainer{
@@ -39,23 +36,23 @@
         @apply(--layout-flex);
       }
 
-      paper-toolbar ::shadow .toolbar-tools ::content > *{
+      .ptb-margin{
           margin: 0 8px;
       }
 
     </style>
 
     <paper-toolbar>
-      <paper-icon-button icon="unfold-more" title="Get code" class="rotate" id="showMarkupBtn" on-click="_showMarkup"></paper-icon-button>
+      <paper-icon-button class="ptb-margin" icon="unfold-more" title="Get code" class="rotate" id="showMarkupBtn" on-click="_showMarkup"></paper-icon-button>
 
-      <paper-icon-button icon="assignment" title="Get solution" id="showSolutionBtn" on-click="_showSolution"></paper-icon-button>
+      <paper-icon-button class="ptb-margin" icon="assignment" title="Get solution" id="showSolutionBtn" on-click="_showSolution"></paper-icon-button>
 
 
       <span class="separator"></span>
 
-      <paper-input label="font-size" value="{{fontSize}}"></paper-input>
+      <paper-input class="ptb-margin" label="font-size" value="{{fontSize}}"></paper-input>
 
-      <paper-dropdown-menu label="Syntax">
+      <paper-dropdown-menu class="ptb-margin" label="Syntax">
           <paper-menu class="dropdown-content" id="syntaxMenu" selected-item="{{syntaxModeItem}}">
             <template is="dom-repeat" items="{{syntaxModes}}" as="mode">
               <paper-item file$="[[mode.file]]">[[mode.name]]</paper-item>
@@ -63,7 +60,7 @@
           </paper-menu>
       </paper-dropdown-menu>&nbsp;
 
-       <paper-dropdown-menu label="Theme">
+       <paper-dropdown-menu class="ptb-margin" label="Theme">
           <paper-menu class="dropdown-content" id="themeMenu" selected-item="{{themeItem}}">
             <template is="dom-repeat" items="{{themes}}" as="t">
               <paper-item file$="[[t.file]]">[[t.name]]</paper-item>

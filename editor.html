@@ -6,11 +6,24 @@
 
   <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="asq-highlight-q-editor.html">
-  <style>
+  <style is="custom-style">
+    :root {
+      --paper-toolbar-background: #CFD8DC;
+      --paper-toolbar-color: #000;  
+    }
+
     body{
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
+    }
+
+    asq-highlight-q-editor{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
     }
 
     h3{
