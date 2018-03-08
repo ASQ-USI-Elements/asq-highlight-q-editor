@@ -1,7 +1,6 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 
 <link rel="import" href="bower_components/iron-dropdown/iron-dropdown.html">
-<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
 <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
@@ -33,6 +32,10 @@
       }
 
       #newTaskTextarea{
+        @apply(--layout-flex);
+      }
+
+      .flexSeparator{
         @apply(--layout-flex);
       }
 
@@ -72,7 +75,7 @@
       
       <span id="editLabel" on-click="_setModeFromLabel" class$="{{_isEditLabelActive(mode)}}">Edit Text</span> <paper-toggle-button id="toggleBtn" on-change="_toggleMode" on-iron-change="_toggleMode"></paper-toggle-button> <span id="highlightLabel" on-click="_setModeFromLabel" class$="{{_isHighlightLabelActive(mode)}}">Highlight</span>
 
-      <div class="flex" ></div>
+      <div class="flexSeparator"></div>
        <h5><code style="padding: 4px 0 3px;">&lt;asq-highlight-q&gt;</code> <span style="color:#666;">editor</span></h5>
 
     </paper-toolbar>
